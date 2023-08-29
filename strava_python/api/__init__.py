@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 # flake8: noqa
 
 # import apis into api package
@@ -12,3 +10,4 @@ from strava_python.api.segment_efforts_api import SegmentEffortsApi
 from strava_python.api.segments_api import SegmentsApi
 from strava_python.api.streams_api import StreamsApi
 from strava_python.api.uploads_api import UploadsApi
+

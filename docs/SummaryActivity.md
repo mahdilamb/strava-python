@@ -1,8 +1,10 @@
 # SummaryActivity
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** | The unique identifier of the activity | [optional] 
 **external_id** | **str** | The identifier provided at upload time | [optional] 
 **upload_id** | **int** | The identifier of the upload that resulted in this activity | [optional] 
 **athlete** | [**MetaAthlete**](MetaAthlete.md) |  | [optional] 
@@ -13,13 +15,13 @@ Name | Type | Description | Notes
 **total_elevation_gain** | **float** | The activity&#39;s total elevation gain. | [optional] 
 **elev_high** | **float** | The activity&#39;s highest elevation, in meters | [optional] 
 **elev_low** | **float** | The activity&#39;s lowest elevation, in meters | [optional] 
-**type** | [**ActivityType**](ActivityType.md) | Deprecated. Prefer to use sport_type | [optional] 
+**type** | [**ActivityType**](ActivityType.md) |  | [optional] 
 **sport_type** | [**SportType**](SportType.md) |  | [optional] 
 **start_date** | **datetime** | The time at which the activity was started. | [optional] 
 **start_date_local** | **datetime** | The time at which the activity was started in the local timezone. | [optional] 
 **timezone** | **str** | The timezone of the activity | [optional] 
-**start_latlng** | [**LatLng**](LatLng.md) |  | [optional] 
-**end_latlng** | [**LatLng**](LatLng.md) |  | [optional] 
+**start_latlng** | **List[float]** | A pair of latitude/longitude coordinates, represented as an array of 2 floating point numbers. | [optional] 
+**end_latlng** | **List[float]** | A pair of latitude/longitude coordinates, represented as an array of 2 floating point numbers. | [optional] 
 **achievement_count** | **int** | The number of achievements gained during this activity | [optional] 
 **kudos_count** | **int** | The number of kudos given for this activity | [optional] 
 **comment_count** | **int** | The number of comments for this activity | [optional] 
@@ -45,6 +47,23 @@ Name | Type | Description | Notes
 **max_watts** | **int** | Rides with power meter data only | [optional] 
 **weighted_average_watts** | **int** | Similar to Normalized Power. Rides with power meter data only | [optional] 
 
+## Example
+
+```python
+from strava_python.models.summary_activity import SummaryActivity
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of SummaryActivity from a JSON string
+summary_activity_instance = SummaryActivity.from_json(json)
+# print the JSON string representation of the object
+print SummaryActivity.to_json()
+
+# convert the object into a dict
+summary_activity_dict = summary_activity_instance.to_dict()
+# create an instance of SummaryActivity from a dict
+summary_activity_form_dict = summary_activity.from_dict(summary_activity_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 

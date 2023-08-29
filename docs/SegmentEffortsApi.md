@@ -1,4 +1,4 @@
-# swagger_client.SegmentEffortsApi
+# strava_python.SegmentEffortsApi
 
 All URIs are relative to *https://www.strava.com/api/v3*
 
@@ -9,38 +9,55 @@ Method | HTTP request | Description
 
 
 # **get_efforts_by_segment_id**
-> list[DetailedSegmentEffort] get_efforts_by_segment_id(segment_id, start_date_local=start_date_local, end_date_local=end_date_local, per_page=per_page)
+> List[DetailedSegmentEffort] get_efforts_by_segment_id(segment_id, start_date_local=start_date_local, end_date_local=end_date_local, per_page=per_page)
 
 List Segment Efforts
 
 Returns a set of the authenticated athlete's segment efforts for a given segment.  Requires subscription.
 
 ### Example
+
+* OAuth Authentication (strava_oauth):
 ```python
-from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import os
+import strava_python
+from strava_python.models.detailed_segment_effort import DetailedSegmentEffort
+from strava_python.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: strava_oauth
-configuration = swagger_client.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Defining the host is optional and defaults to https://www.strava.com/api/v3
+# See configuration.py for a list of all supported configuration parameters.
+configuration = strava_python.Configuration(
+    host = "https://www.strava.com/api/v3"
+)
 
-# create an instance of the API class
-api_instance = swagger_client.SegmentEffortsApi(swagger_client.ApiClient(configuration))
-segment_id = 56 # int | The identifier of the segment.
-start_date_local = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 formatted date time. (optional)
-end_date_local = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 formatted date time. (optional)
-per_page = 30 # int | Number of items per page. Defaults to 30. (optional) (default to 30)
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-try:
-    # List Segment Efforts
-    api_response = api_instance.get_efforts_by_segment_id(segment_id, start_date_local=start_date_local, end_date_local=end_date_local, per_page=per_page)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SegmentEffortsApi->get_efforts_by_segment_id: %s\n" % e)
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with strava_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = strava_python.SegmentEffortsApi(api_client)
+    segment_id = 56 # int | The identifier of the segment.
+    start_date_local = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 formatted date time. (optional)
+    end_date_local = '2013-10-20T19:20:30+01:00' # datetime | ISO 8601 formatted date time. (optional)
+    per_page = 30 # int | Number of items per page. Defaults to 30. (optional) (default to 30)
+
+    try:
+        # List Segment Efforts
+        api_response = api_instance.get_efforts_by_segment_id(segment_id, start_date_local=start_date_local, end_date_local=end_date_local, per_page=per_page)
+        print("The response of SegmentEffortsApi->get_efforts_by_segment_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SegmentEffortsApi->get_efforts_by_segment_id: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -53,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[DetailedSegmentEffort]**](DetailedSegmentEffort.md)
+[**List[DetailedSegmentEffort]**](DetailedSegmentEffort.md)
 
 ### Authorization
 
@@ -63,6 +80,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of segment efforts. |  -  |
+**0** | Unexpected error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -74,28 +97,45 @@ Get Segment Effort
 Returns a segment effort from an activity that is owned by the authenticated athlete. Requires subscription.
 
 ### Example
+
+* OAuth Authentication (strava_oauth):
 ```python
-from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import os
+import strava_python
+from strava_python.models.detailed_segment_effort import DetailedSegmentEffort
+from strava_python.rest import ApiException
 from pprint import pprint
 
-# Configure OAuth2 access token for authorization: strava_oauth
-configuration = swagger_client.Configuration()
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
+# Defining the host is optional and defaults to https://www.strava.com/api/v3
+# See configuration.py for a list of all supported configuration parameters.
+configuration = strava_python.Configuration(
+    host = "https://www.strava.com/api/v3"
+)
 
-# create an instance of the API class
-api_instance = swagger_client.SegmentEffortsApi(swagger_client.ApiClient(configuration))
-id = 789 # int | The identifier of the segment effort.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
 
-try:
-    # Get Segment Effort
-    api_response = api_instance.get_segment_effort_by_id(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SegmentEffortsApi->get_segment_effort_by_id: %s\n" % e)
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with strava_python.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = strava_python.SegmentEffortsApi(api_client)
+    id = 56 # int | The identifier of the segment effort.
+
+    try:
+        # Get Segment Effort
+        api_response = api_instance.get_segment_effort_by_id(id)
+        print("The response of SegmentEffortsApi->get_segment_effort_by_id:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SegmentEffortsApi->get_segment_effort_by_id: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -115,6 +155,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Representation of a segment effort. |  -  |
+**0** | Unexpected error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

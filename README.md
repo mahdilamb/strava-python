@@ -19,8 +19,9 @@ from strava_python import auth, api, api_client
 
 config = auth.get_config_for_tokens_local()
 client = api_client.ApiClient(config)
-data, status,headers = api.ActivitiesApi(client).get_logged_in_athlete_activities_with_http_info()
+data = api.ActivitiesApi(client).get_logged_in_athlete_activities()
 print(data)
+
 
 
 ```

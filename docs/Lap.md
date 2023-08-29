@@ -1,5 +1,6 @@
 # Lap
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -22,6 +23,23 @@ Name | Type | Description | Notes
 **start_date_local** | **datetime** | The time at which the lap was started in the local timezone. | [optional] 
 **total_elevation_gain** | **float** | The elevation gain of this lap, in meters | [optional] 
 
+## Example
+
+```python
+from strava_python.models.lap import Lap
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of Lap from a JSON string
+lap_instance = Lap.from_json(json)
+# print the JSON string representation of the object
+print Lap.to_json()
+
+# convert the object into a dict
+lap_dict = lap_instance.to_dict()
+# create an instance of Lap from a dict
+lap_form_dict = lap.from_dict(lap_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
