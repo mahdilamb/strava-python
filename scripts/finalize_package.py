@@ -20,16 +20,4 @@ def update_requirements():
         for requirement in ADDITIONAL_REQUIREMENTS:
             fp.write(requirement + "\n")
 
-def renames():    
-    replacements = {r"((?:.*conlist.*?)min_)items(\s*=\s*\d+.*)": r"\1length\2",r"((?:.*conlist.*?)max_)items(\s*=\s*\d+.*)": r"\1length\2"}
-    for file in glob.glob("strava_python/**/*.py", recursive=True):
-
-        with open(file,"r") as fp:
-            updated = fp.read()
-            for pattern,sub in replacements.items():
-                updated  =functools.cache(re.compile)(pattern, re.MULTILINE).sub(sub, updated)
-            with open(file, "+w") as w_fp:
-                w_fp.write(updated)
-
 update_requirements()
-renames()

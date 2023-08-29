@@ -44,7 +44,7 @@ class StreamsApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def get_activity_streams(self, id : Annotated[StrictInt, Field(..., description="The identifier of the activity.")], keys : Annotated[conlist(StrictStr, min_length=1), Field(..., description="Desired stream types.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> StreamSet:  # noqa: E501
+    def get_activity_streams(self, id : Annotated[StrictInt, Field(..., description="The identifier of the activity.")], keys : Annotated[conlist(StrictStr, min_items=1), Field(..., description="Desired stream types.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> StreamSet:  # noqa: E501
         """Get Activity Streams  # noqa: E501
 
         Returns the given activity's streams. Requires activity:read scope. Requires activity:read_all scope for Only Me activities.  # noqa: E501
@@ -77,7 +77,7 @@ class StreamsApi(object):
         return self.get_activity_streams_with_http_info(id, keys, key_by_type, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_activity_streams_with_http_info(self, id : Annotated[StrictInt, Field(..., description="The identifier of the activity.")], keys : Annotated[conlist(StrictStr, min_length=1), Field(..., description="Desired stream types.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_activity_streams_with_http_info(self, id : Annotated[StrictInt, Field(..., description="The identifier of the activity.")], keys : Annotated[conlist(StrictStr, min_items=1), Field(..., description="Desired stream types.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Activity Streams  # noqa: E501
 
         Returns the given activity's streams. Requires activity:read scope. Requires activity:read_all scope for Only Me activities.  # noqa: E501
@@ -339,7 +339,7 @@ class StreamsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_segment_effort_streams(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment effort.")], keys : Annotated[conlist(StrictStr, min_length=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> StreamSet:  # noqa: E501
+    def get_segment_effort_streams(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment effort.")], keys : Annotated[conlist(StrictStr, min_items=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> StreamSet:  # noqa: E501
         """Get Segment Effort Streams  # noqa: E501
 
         Returns a set of streams for a segment effort completed by the authenticated athlete. Requires read_all scope.  # noqa: E501
@@ -372,7 +372,7 @@ class StreamsApi(object):
         return self.get_segment_effort_streams_with_http_info(id, keys, key_by_type, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_segment_effort_streams_with_http_info(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment effort.")], keys : Annotated[conlist(StrictStr, min_length=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_segment_effort_streams_with_http_info(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment effort.")], keys : Annotated[conlist(StrictStr, min_items=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Segment Effort Streams  # noqa: E501
 
         Returns a set of streams for a segment effort completed by the authenticated athlete. Requires read_all scope.  # noqa: E501
@@ -495,7 +495,7 @@ class StreamsApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_segment_streams(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment.")], keys : Annotated[conlist(StrictStr, min_length=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> StreamSet:  # noqa: E501
+    def get_segment_streams(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment.")], keys : Annotated[conlist(StrictStr, min_items=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> StreamSet:  # noqa: E501
         """Get Segment Streams  # noqa: E501
 
         Returns the given segment's streams. Requires read_all scope for private segments.  # noqa: E501
@@ -528,7 +528,7 @@ class StreamsApi(object):
         return self.get_segment_streams_with_http_info(id, keys, key_by_type, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_segment_streams_with_http_info(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment.")], keys : Annotated[conlist(StrictStr, min_length=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> ApiResponse:  # noqa: E501
+    def get_segment_streams_with_http_info(self, id : Annotated[StrictInt, Field(..., description="The identifier of the segment.")], keys : Annotated[conlist(StrictStr, min_items=1), Field(..., description="The types of streams to return.")], key_by_type : Annotated[StrictBool, Field(..., description="Must be true.")], **kwargs) -> ApiResponse:  # noqa: E501
         """Get Segment Streams  # noqa: E501
 
         Returns the given segment's streams. Requires read_all scope for private segments.  # noqa: E501

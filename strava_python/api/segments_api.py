@@ -48,7 +48,7 @@ class SegmentsApi(object):
         self.api_client = api_client
 
     @validate_arguments
-    def explore_segments(self, bounds : Annotated[conlist(Union[StrictFloat, StrictInt], max_length=4, min_length=4), Field(..., description="The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude]")], activity_type : Annotated[Optional[StrictStr], Field(description="Desired activity type.")] = None, min_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The minimum climbing category.")] = None, max_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The maximum climbing category.")] = None, **kwargs) -> ExplorerResponse:  # noqa: E501
+    def explore_segments(self, bounds : Annotated[conlist(Union[StrictFloat, StrictInt], max_items=4, min_items=4), Field(..., description="The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude]")], activity_type : Annotated[Optional[StrictStr], Field(description="Desired activity type.")] = None, min_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The minimum climbing category.")] = None, max_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The maximum climbing category.")] = None, **kwargs) -> ExplorerResponse:  # noqa: E501
         """Explore segments  # noqa: E501
 
         Returns the top 10 segments matching a specified query.  # noqa: E501
@@ -83,7 +83,7 @@ class SegmentsApi(object):
         return self.explore_segments_with_http_info(bounds, activity_type, min_cat, max_cat, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def explore_segments_with_http_info(self, bounds : Annotated[conlist(Union[StrictFloat, StrictInt], max_length=4, min_length=4), Field(..., description="The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude]")], activity_type : Annotated[Optional[StrictStr], Field(description="Desired activity type.")] = None, min_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The minimum climbing category.")] = None, max_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The maximum climbing category.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def explore_segments_with_http_info(self, bounds : Annotated[conlist(Union[StrictFloat, StrictInt], max_items=4, min_items=4), Field(..., description="The latitude and longitude for two points describing a rectangular boundary for the search: [southwest corner latitutde, southwest corner longitude, northeast corner latitude, northeast corner longitude]")], activity_type : Annotated[Optional[StrictStr], Field(description="Desired activity type.")] = None, min_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The minimum climbing category.")] = None, max_cat : Annotated[Optional[conint(strict=True, le=5, ge=0)], Field(description="The maximum climbing category.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """Explore segments  # noqa: E501
 
         Returns the top 10 segments matching a specified query.  # noqa: E501

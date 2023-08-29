@@ -28,7 +28,7 @@ class LatLngStream(BaseModel):
     original_size: Optional[StrictInt] = Field(None, description="The number of data points in this stream")
     resolution: Optional[StrictStr] = Field(None, description="The level of detail (sampling) in which this stream was returned")
     series_type: Optional[StrictStr] = Field(None, description="The base series used in the case the stream was downsampled")
-    data: Optional[conlist(conlist(Union[StrictFloat, StrictInt], max_length=2, min_length=2))] = Field(None, description="The sequence of lat/long values for this stream")
+    data: Optional[conlist(conlist(Union[StrictFloat, StrictInt], max_items=2, min_items=2))] = Field(None, description="The sequence of lat/long values for this stream")
     __properties = ["original_size", "resolution", "series_type", "data"]
 
     @validator('resolution')
