@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "strava_python"
-version = "0.0.3"
+version = "0.0.4"
 description = "Strava API v3"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"

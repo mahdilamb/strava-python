@@ -130,8 +130,8 @@ def get_config_for_tokens_local(
     tmp_server = server.HTTPServer((address, int(port)), AuthClient)
     tmp_server.serve_forever()
     data = token_url(code)
-    response = TokenResponse.model_validate_json(
-        requests.post("https://www.strava.com/oauth/token", data=data).text
+    response = TokenResponse.parse_raw(
+        requests.post("https://www.strava.com/oauth/token", data=data).content
     )
 
     config = configuration.Configuration()
